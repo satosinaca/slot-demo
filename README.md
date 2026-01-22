@@ -3,7 +3,7 @@
 Simple Web Slot Demo with Pragmatic Play API <br>
 Create for learning. not for sell this code 100% free
 
-currency: IDR <br>
+currency: USD <br>
 Total Game: 9 <br>
 type game : Slots <br>
 
