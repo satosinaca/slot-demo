@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GemVui - Gaming Platform</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+</head>
+<body>
+    <div id="auth-container">
+        <div class="auth-wrapper">
+            <div class="auth-box">
+                <h1 class="logo">💎 GemVui</h1>
+                <p class="tagline">Premium Gaming Platform</p>
+                
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchTab('register')">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="loginEmail" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="loginPassword" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn-primary">Login</button>
+                    <div id="loginError" class="error-msg"></div>
+                </form>
+
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="regUsername" required placeholder="Choose a username">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="regEmail" required placeholder="your@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="regPassword" required placeholder="Create password">
+                    </div>
+                    <button type="submit" class="btn-primary">Register</button>
+                    <div id="regError" class="error-msg"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app-container" style="display: none;">
+        <nav class="navbar">
+            <div class="nav-brand">💎 GemVui</div>
+            <div class="nav-menu">
+                <a href="#" onclick="showSection('games')" class="nav-link active">Games</a>
+                <a href="#" onclick="showSection('rewards')" class="nav-link">Rewards</a>
+                <a href="#" onclick="showSection('tasks')" class="nav-link">Tasks</a>
+                <a href="#" onclick="showSection('leaderboard')" class="nav-link">Leaderboard</a>
+            </div>
+            <div class="nav-user">
+                <span id="userBalance" class="balance">$0</span>
+                <button onclick="logout()" class="btn-logout">Logout</button>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- User Info -->
+            <div class="user-info">
+                <h2>Welcome, <span id="username"></span>!</h2>
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Balance</div>
+                        <div class="stat-value" id="balance-stat">$1,000</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Points</div>
+                        <div class="stat-value" id="points-stat">0</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Level</div>
+                        <div class="stat-value" id="level-stat">1</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Games Section -->
+            <section id="gamesSection" class="section active">
+                <h2>Popular Games</h2>
+                <div id="gamesList" class="games-grid"></div>
+            </section>
+
+            <!-- Rewards Section -->
+            <section id="rewardsSection" class="section">
+                <h2>Available Rewards</h2>
+                <div id="rewardsList" class="rewards-grid"></div>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasksSection" class="section">
+                <h2>Daily Tasks</h2>
+                <div id="tasksList" class="tasks-list"></div>
+            </section>
+
+            <!-- Leaderboard Section -->
+            <section id="leaderboardSection" class="section">
+                <h2>Top Players</h2>
+                <div id="leaderboardList" class="leaderboard-table"></div>
+            </section>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
